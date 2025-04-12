@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.12 on win32)" generated="20250412 23:59:50.517" rpa="true" schemaversion="3">
+<suite id="s1" name="File" source="f:\Testing\Automatic_testing\Robot_VsCode\Jenkins_Project\File.robot">
+<test id="s1-t1" name="Task1:" line="7">
+<kw name="Log" library="BuiltIn">
+<arg>HEllo World</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20250412 23:59:50.660" level="INFO">HEllo World</msg>
+<status status="PASS" starttime="20250412 23:59:50.659" endtime="20250412 23:59:50.681"/>
+</kw>
+<status status="PASS" starttime="20250412 23:59:50.653" endtime="20250412 23:59:50.687"/>
+</test>
+<status status="PASS" starttime="20250412 23:59:50.539" endtime="20250412 23:59:50.698"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="File">File</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
