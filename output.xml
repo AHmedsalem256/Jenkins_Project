@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.12 on win32)" generated="20250412 23:59:50.517" rpa="true" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.12 on win32)" generated="20250413 00:02:22.552" rpa="true" schemaversion="3">
 <suite id="s1" name="File" source="f:\Testing\Automatic_testing\Robot_VsCode\Jenkins_Project\File.robot">
 <test id="s1-t1" name="Task1:" line="7">
 <kw name="Log" library="BuiltIn">
 <arg>HEllo World</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20250412 23:59:50.660" level="INFO">HEllo World</msg>
-<status status="PASS" starttime="20250412 23:59:50.659" endtime="20250412 23:59:50.681"/>
+<msg timestamp="20250413 00:02:22.729" level="INFO">HEllo World</msg>
+<status status="PASS" starttime="20250413 00:02:22.727" endtime="20250413 00:02:22.741"/>
 </kw>
-<status status="PASS" starttime="20250412 23:59:50.653" endtime="20250412 23:59:50.687"/>
+<kw name="Log" library="BuiltIn">
+<arg>Hello WRold</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20250413 00:02:22.751" level="INFO">Hello WRold</msg>
+<status status="PASS" starttime="20250413 00:02:22.749" endtime="20250413 00:02:22.752"/>
+</kw>
+<status status="PASS" starttime="20250413 00:02:22.720" endtime="20250413 00:02:22.761"/>
 </test>
-<status status="PASS" starttime="20250412 23:59:50.539" endtime="20250412 23:59:50.698"/>
+<status status="PASS" starttime="20250413 00:02:22.579" endtime="20250413 00:02:22.767"/>
 </suite>
 <statistics>
 <total>
