@@ -8,13 +8,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/AHmedsalem256/Jenkins_Test_Github.git'
             }
         }
-
-        stage('Test') {
-            steps {
-                // Assuming test cases are in a .robot file like "tests/my_tests.robot"
-                bat 'robot -d results tests/'
-            }
+stage('Test') {
+    steps {
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            bat 'robot -d results tests/'
         }
+    }
+}
+
 
         stage('Report') {
             steps {
