@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Build ') {
-      steps {
-        echo 'HEllo Wolrld'
+      parallel {
+        stage('Build ') {
+          steps {
+            echo 'HEllo Wolrld'
+          }
+        }
+
+        stage('') {
+          steps {
+            echo 'Hello World'
+          }
+        }
+
       }
     }
 
