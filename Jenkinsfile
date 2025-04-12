@@ -1,30 +1,39 @@
 pipeline {
     agent any
 
+    environment {
+        ROBOT_REPORT_DIR = 'robot-reports'
+    }
+
     stages {
-
-        stage('Build') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/AHmedsalem256/Jenkins_Test_Github.git'
+                git 'https://github.com/AHmedsalem256/Jenkins_Project.git'
             }
         }
 
-        stage('Test') {
+        stage('Install Dependencies') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    bat 'robot -d results tests/'
-                }
+                bat 'pip install -r requirements.txt' // if you have one
+                bat 'pip install robotframework'
+                bat 'pip install robotframework-seleniumlibrary'
             }
         }
 
-        stage('Report') {
+        stage('Run Robot Tests') {
             steps {
-                publishHTML (target: [
-                    reportDir: 'results',
-                    reportFiles: 'report.html',
+                bat 'robot --outputdir %ROBOT_REPORT_DIR% tests/'
+            }
+        }
+
+        stage('Publish Robot Report') {
+            steps {
+                publishHTML (target : [
+                    allowMissing: false,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    allowMissing: false,
+                    reportDir: 'robot-reports',
+                    reportFiles: 'report.html',
                     reportName: 'Robot Test Report'
                 ])
             }
@@ -33,7 +42,7 @@ pipeline {
 
     post {
         always {
-            echo "Build finished. Check test results in the 'Robot Test Report'."
+            archiveArtifacts artifacts: 'robot-reports/*.html', allowEmptyArchive: true
         }
     }
 }
