@@ -8,18 +8,17 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/AHmedsalem256/Jenkins_Test_Github.git'
             }
         }
-stage('Test') {
-    steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-            bat 'robot -d results tests/'
-        }
-    }
-}
 
+        stage('Test') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    bat 'robot -d results tests/'
+                }
+            }
+        }
 
         stage('Report') {
             steps {
-                // Publish the Robot Framework report
                 publishHTML (target: [
                     reportDir: 'results',
                     reportFiles: 'report.html',
@@ -29,6 +28,12 @@ stage('Test') {
                     reportName: 'Robot Test Report'
                 ])
             }
+        }
+    }
+
+    post {
+        always {
+            echo "Build finished. Check test results in the 'Robot Test Report'."
         }
     }
 }
