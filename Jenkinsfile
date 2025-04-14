@@ -1,19 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout Code') {
-      steps {
-        git 'https://github.com/AHmedsalem256/Jenkins_Project.git'
-      }
-    }
+stage('Checkout Code') {
+  steps {
+    git branch: 'main', url: 'https://github.com/AHmedsalem256/Jenkins_Project.git'
+  }
+}
 
-    stage('Install Dependencies') {
-      steps {
-        bat 'pip install -r requirements.txt'
-        bat 'pip install robotframework'
-        bat 'pip install robotframework-seleniumlibrary'
-      }
-    }
 
     stage('Run Robot Tests') {
       steps {
